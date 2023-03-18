@@ -1,8 +1,13 @@
 const choices = ['rock', 'paper', 'scissors'];
+const choice = Math.floor(Math.random() * choices.length);
 
-function getComputerChoice() {
-    const choice = Math.floor(Math.random() * choices.length);
-    console.log(choices[choice]);
+let playerChoice = prompt("What is your choice? (Rock, Paper, Scissors)").toUpperCase();
+let computerChoice = choices[choice];
+
+function playRound(playerSelection, computerSelection) {
+    console.log(playerSelection);
+    console.log(computerSelection);
 }
 
+playRound(playerChoice, computerChoice)
 getComputerChoice();
