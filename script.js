@@ -1,45 +1,57 @@
-const choices = ['rock', 'paper', 'scissors'];
-const choice = Math.floor(Math.random() * choices.length);
+const rock = document.getElementById('option-rock');
+const paper = document.getElementById('option-paper');
+const scissors = document.getElementById('option-scissors');
 
-let playerChoice = prompt("What is your choice? (Rock, Paper, Scissors)").toUpperCase();
-let computerChoice = choices[choice].toUpperCase();
+let choices = ['ROCK', 'PAPER', 'SCISSORS'];
 
-function playRound(playerSelection, computerSelection) {
-    console.log(`You drew ${playerSelection}`);
-    console.log(`The computer drew ${computerSelection}`);
-    if (playerSelection == "ROCK") {
+let playerChoice = 0;
+
+
+function getComputerChoice() {
+    const randomChoice = Math.floor(Math.random() * choices.length);
+    computerChoice = choices[randomChoice];
+    console.log(computerChoice);
+}
+
+rock.addEventListener('click', () => {
+    getComputerChoice();
+    playerChoice = 'ROCK';
+    if (playerChoice == "ROCK") {
         if (computerChoice == "ROCK") {
-            console.log('It\'s a draw!');
+          console.log("It's a draw!");
         } else if (computerChoice == "PAPER") {
-            console.log('You lose!');
+          console.log("You lose!");
         } else if (computerChoice == "SCISSORS") {
-            console.log('You win!!');
+          console.log("You win!");
         }
-    }
+      }
+});
 
-    if (playerSelection == "PAPER") {
+paper.addEventListener('click', () => {
+    getComputerChoice();
+    playerChoice = 'PAPER';
+    if (playerChoice == "PAPER") {
         if (computerChoice == "PAPER") {
-            console.log("It's a draw!");
+          console.log("It's a draw!");
         } else if (computerChoice == "ROCK") {
-            console.log("You win!");
+          console.log("You win!");
         } else if (computerChoice == "SCISSORS") {
-            console.log("You lose!");
+          console.log("You lose!");
         }
-    }
+      }
+      
+});
 
-    if (playerSelection == "SCISSORS") {
+scissors.addEventListener('click', () => {
+    getComputerChoice();
+    playerChoice = 'SCISSORS';
+    if (playerChoice == "SCISSORS") {
         if (computerChoice == "SCISSORS") {
-            console.log("It's a draw!");
+          console.log("It's a draw!");
         } else if (computerChoice == "PAPER") {
-            console.log("You win!");
+          console.log("You win!");
         } else if (computerChoice == "ROCK") {
-            console.log("You lose!");
+          console.log("You lose!");
         }
-    }
-}
-
-function game() {
-    playRound(playerChoice, computerChoice);
-}
-
-game();
+      }
+});
